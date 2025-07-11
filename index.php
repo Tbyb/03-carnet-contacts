@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
-    header('Location: login.php');
+    header('Location: connexion.php');
     exit();
 }
 
@@ -32,7 +32,7 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['telephone'], $_POST['email'])
 <div class="container bg-white p-4 shadow rounded">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2><i class="bi bi-person-lines-fill"></i> Carnet de contacts</h2>
-        <a href="logout.php" class="btn btn-outline-danger"><i class="bi bi-box-arrow-left"></i> Se déconnecter</a>
+        <a href="deconnexion.php" class="btn btn-outline-danger"><i class="bi bi-box-arrow-left"></i> Se déconnecter</a>
     </div>
 
     <!-- Formulaire d'ajout -->
@@ -94,7 +94,7 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['telephone'], $_POST['email'])
 
                         echo "<tr>";
                         foreach ($ligne as $champ) {
-                            echo "<td>" . htmlspecialchars($champ) . "</td>";
+                            echo "<td>" . htmlspecialchars((string)$champ) . "</td>";
                         }
                         echo "</tr>";
                     }
